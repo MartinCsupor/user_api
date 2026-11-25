@@ -2,3 +2,4 @@
 2. réteg: adatbázis létrehozása (XAMPP), config/index.js db/sequelize.js
 3. réteg: model (User model), db:sync, db:seed
 4. réteg: repository + teszt user.repository.js + node test parancs
+5. réteg: service réteg: utils -> AppError, service -> repo függvényhívások
