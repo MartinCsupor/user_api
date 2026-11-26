@@ -1,8 +1,7 @@
 const bcrypt = require('bcrypt')
 const userRepository = require('../repositories/user.repository')
 const AppError = require("../utils/AppError")
-const e = require('express')
-const ROUND = 10
+const SALT_ROUND = 10
 
 const pick = (obj, keys) => Object.fromEntries(keys.filter(k => obj(k) !== undefined).map(k => [k, obj[k]]))
 
@@ -14,6 +13,7 @@ module.exports = {
     async getById(id) {
         const user = await userRepository.findById(id)
         if (!user) throw new AppError('Felhasználó nem található', 404)
+        return user
     },
 
     async create({ name, email, password, role }) {
